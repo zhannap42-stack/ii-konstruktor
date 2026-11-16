@@ -37,10 +37,10 @@ function DownButton({value,children,selected=false,onClick,buttonRef}:any){retur
 const CustomColorSelection=React.createContext(false);
 function CustomColorField({value,onClick,ref}:any){const selected=React.useContext(CustomColorSelection);return <DownButton value={value} selected={selected} onClick={onClick} buttonRef={ref}><Icon name="color-fill" color="neutral"/></DownButton>}
 const exampleSites=[
-{id:1,name:'Сонная Лощина',version:4,date:'16.10.2026, 13:20',languages:'4 языка',domain:true,status:'Опубликован'},
-{id:2,name:'Сонная Лощина 1',version:2,date:'16.10.2026, 13:20',languages:'4 языка',domain:false,status:'Опубликован'},
-{id:3,name:'Сонная Лощина 2',version:1,date:'17.10.2026, 11:00',languages:'1 язык',domain:false,status:'Черновик'},
-{id:4,name:'Сонная Лощина 3',version:5,date:'17.10.2026, 11:00',languages:'1 язык',domain:true,status:'Готов к публикации'}];
+{id:1,name:'Сонная Лощина',version:4,date:'16.10.2026, 13:20',languages:'RU, EN-US, AR, HY',domain:true,status:'Опубликован'},
+{id:2,name:'Сонная Лощина 1',version:2,date:'16.10.2026, 13:20',languages:'RU, EN-US, AR, HY',domain:false,status:'Опубликован'},
+{id:3,name:'Сонная Лощина 2',version:1,date:'17.10.2026, 11:00',languages:'RU',domain:false,status:'Черновик'},
+{id:4,name:'Сонная Лощина 3',version:5,date:'17.10.2026, 11:00',languages:'RU',domain:true,status:'Готов к публикации'}];
 function SiteActions({site,onAction}:any){return <ActionMenu window={{size:()=>({minWidth:240,maxWidth:240})}} actions={[
 {icon:'edit',text:'Редактировать',onClick:()=>onAction('Редактировать',site)},
 {icon:'redo',text:'Подготовить публикацию',onClick:()=>onAction('Подготовить публикацию',site)},
@@ -56,7 +56,7 @@ function App(){
  const changed=()=>setCount(c=>c+1);
  const valid=(s:string)=>{try{let u=new URL(s);return /^https?:$/.test(u.protocol)&&!!u.hostname.includes('.')}catch{return false}};
  const toDesign=()=>{if(links.some(x=>x.trim()&&!valid(x))){setErrors(true);return}go('design')};
- const create=()=>{if(busy||(design==='brand'&&!buckets.brand.length))return;setBusy(true);go('generating');window.setTimeout(()=>{let site={id:Date.now(),name:sites.length?`Сонная Лощина ${sites.length}`:'Сонная Лощина',design,color,links:links.filter(Boolean),files:[...buckets.photos,...buckets.docs].map(x=>x.name),version:1,date:'17.10.2026, 11:00',languages:'1 язык',domain:false,status:'Черновик'};let next=[...sites,site];setSites(next);setSelectedSite(site);setBusy(false);go('editor')},2200)};
+ const create=()=>{if(busy||(design==='brand'&&!buckets.brand.length))return;setBusy(true);go('generating');window.setTimeout(()=>{let site={id:Date.now(),name:sites.length?`Сонная Лощина ${sites.length}`:'Сонная Лощина',design,color,links:links.filter(Boolean),files:[...buckets.photos,...buckets.docs].map(x=>x.name),version:1,date:'17.10.2026, 11:00',languages:'RU',domain:false,status:'Черновик'};let next=[...sites,site];setSites(next);setSelectedSite(site);setBusy(false);go('editor')},2200)};
  const step=screen==='data'?1:screen==='materials'?2:3;
  const data=[['Название и адрес','Сонная Лощина','ул. Лесная, д. 10, Ленинградская область'],['Контакты','Hotel@mail.ru','+7 999-999-99-99'],['Номера и вместимость','7 категорий номеров',''],['Фотографии номеров','27 фотографий',''],['Тарифы','14 активных тарифов',''],['Услуги','8 услуг','']];
  const info=<Alert status="info" text="Этот шаг можно пропустить. Вы сможете загрузить ссылки, фотографии и документы позже в редакторе сайта"/>;
