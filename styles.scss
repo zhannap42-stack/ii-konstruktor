@@ -85,7 +85,7 @@ a[aria-disabled=true]{pointer-events:none;opacity:.5}
 .credits-panel .panel-body{padding-bottom:23px}
 .data-card{padding:15px}
 .links>div:last-child a{height:36px;min-height:36px}
-.card-design{width:100%;max-width:1064px;align-self:flex-start;block-size:auto!important;height:auto!important;box-sizing:border-box!important;border:0!important;border-radius:4px;background:rgb(var(--REACTOR-color-background-secondary));box-shadow:inset 0 0 0 1px rgb(var(--REACTOR-color-border));flex:none!important}
+.card-design{block-size:auto!important;height:auto!important;box-sizing:border-box!important;border:0!important;border-radius:4px;background:rgb(var(--REACTOR-color-background-secondary));box-shadow:inset 0 0 0 1px rgb(var(--REACTOR-color-border));flex:none!important}
 .card-design.selected{box-shadow:inset 0 0 0 1px rgb(var(--REACTOR-color-accent-focus))}
 .card-design>div{padding:16px!important}
 .card-design-header{min-height:64px;flex:none!important}
