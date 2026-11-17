@@ -32,9 +32,9 @@ a[aria-disabled=true]{pointer-events:none;opacity:.5}
 
 /* Dimensions matched to the 1440px Figma frames. */
 .steps{align-items:center}
-.steps .wizard-step{display:flex;align-items:center;padding:8px;border:0;border-radius:4px;flex:none;opacity:1;cursor:pointer;background:rgb(var(--REACTOR-color-border));color:rgb(var(--REACTOR-color-accent))}
+.steps .wizard-step{display:flex;align-items:center;padding:8px;border:0;border-radius:4px;flex:none;opacity:1;cursor:pointer;background:rgb(var(--REACTOR-color-background-disabled));color:rgb(var(--REACTOR-color-accent))}
 .steps .wizard-step .step-number{width:32px;height:32px;flex:none;border-radius:50%;align-items:center;justify-content:center;background:rgb(var(--REACTOR-color-accent));color:rgb(var(--REACTOR-color-foreground-inverse))}
-.steps .wizard-step.current{background:rgb(var(--REACTOR-color-accent));color:rgb(var(--REACTOR-color-foreground-inverse))}
+.steps .wizard-step.current{background:rgb(var(--REACTOR-color-accent-hover));color:rgb(var(--REACTOR-color-foreground-inverse))}
 .steps .wizard-step.current .step-number{background:rgb(var(--REACTOR-color-info))}
 .steps .wizard-step.upcoming{background:rgb(var(--REACTOR-color-neutral-semilight));color:rgb(var(--REACTOR-color-foreground-inverse));pointer-events:none}
 .steps .wizard-step.upcoming .step-number{background:rgb(var(--REACTOR-color-background-secondary));color:rgb(var(--REACTOR-color-neutral-semilight))}
